@@ -1,0 +1,9 @@
+prefix sh: <http://www.w3.org/ns/shacl#>  
+prefix airo: <https://w3id.org/AIRO#>
+prefix ex: <https://test>
+ 
+ex:AISystemShape
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:path airo:hasPurpose ;
+  sh:in ( airo:Tetris airo:Pacman ) .

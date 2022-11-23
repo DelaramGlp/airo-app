@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Risk Assessment</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Check your AI system</h1>
+            <label for="purpose">What does your AI System do?</label>
+            <select name="purpose" id="idselpurpose">
+              <option value="Destroy">Destroys the world</option>
+              <option value="Tetris">Plays Tetris</option>
+            </select>
+            <br/>
+            <button onclick="submit()">Check</button>
+            <hr/>
+            <span id="idresponse" style="font-weight: bold;"></span>
+        <script>
+            async function submit()
+            {
+                var purpose = document.getElementById('idselpurpose').selectedOptions[0].value;
+                var input = { "purpose": purpose };
+                console.log("so you want to " + purpose);
+                const response = await fetch("/airo-app/risk", {method:"POST", body: JSON.stringify(input)});
+                const responsetxt = await response.text();
+                console.log("the answer is " + responsetxt);
+                document.getElementById('idresponse').innerHTML = responsetxt;
+            }
+        </script>
+    </body>
+</html>
