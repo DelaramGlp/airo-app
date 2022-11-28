@@ -1,26 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+ 	  xmlns:ui="http://java.sun.com/jsf/facelets">
     <head>
-        <title>AI Risk Assessment</title>
+    	<h:outputStylesheet library = "css" name = "style.css"/>
+        <title>Determine High-Risk AI</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <h1>Check your AI system</h1>
-            <label for="purpose">What does your AI System do?</label>
+            <label for="purpose">1. What is the intended purpose of the AI system?</label>
             <select name="purpose" id="idselpurpose">
-              <option value="Destroy">Destroys the world</option>
+              <option value="BiometricIdentification">Biometric Identification</option>
+              <option value="DeterminingAccessToEducation"> Determining Access to Education </option>
+              <option value="AssigningPeopleToEducationalInstitutions"> Assigning People to Educational Institutions </option>
               <option value="Tetris">Plays Tetris</option>
             </select>
             <br/>
+            
+            <label for="domain"> 2. What domain is the system intended to be used in?</label>
+            <select name="domain" id="iddomain">
+            <option value="Education"> Education </option>
+           	 <option value="Law_Enforcement"> Law Enforcement </option>
+            </select>
+            <br/>
+          
+            <label for="application"> 3. What is the application of the system?</label>
+            <select name="application" id="idapplication">
+           	 <option value="facial recognition"> Facial Recognition</option>
+            </select>
+      		 <br/>
+       
+            <label for="user"> 4. Who is the intended user of the system?</label>
+            <select name="user" id="iduser">
+           	 <option value="myUser"> user </option>
+            </select>
+             <br/>
+         
+            <label for="subject"> 5. Who is the subject of the system?</label>
+            <select name="subject" id="idsubject">
+           	<option value="mySub"> sub </option>
+            </select>
+             <br/>
+        
+            
+            <label for="environment"> 6. In which environment is the system used?</label>
+            <select name="environment" id="idenvironment">
+           	<option value="myEnv"> env </option>
+            </select>
+            <br/>
+         
+            
+            
+            
             <button onclick="submit()">Check</button>
             <hr/>
             <span id="idresponse" style="font-weight: bold;"></span>
         <script>
+        
             async function submit()
             {
                 var purpose = document.getElementById('idselpurpose').selectedOptions[0].value;
-                var input = { "purpose": purpose };
-                console.log("so you want to " + purpose);
+                var domain = document.getElementById('iddomain').selectedOptions[0].value;
+                var application = document.getElementById('idapplication').selectedOptions[0].value;
+                var user = document.getElementById('iduser').selectedOptions[0].value;
+                var subject = document.getElementById('idsubject').selectedOptions[0].value;
+                var environment = document.getElementById ('idenvironment').selectedOptions[0].value;
+                
+                var input = { "purpose": purpose,
+                			  "domain": domain,
+                			  "application": application,
+                			  "user": user,
+                			  "subject": subject,
+                			  "environment": environment,};
+                
+                //console.log("so you want to " + purpose);
+               
                 const response = await fetch("/airo-app/risk", {method:"POST", body: JSON.stringify(input)});
                 const responsetxt = await response.text();
                 console.log("the answer is " + responsetxt);

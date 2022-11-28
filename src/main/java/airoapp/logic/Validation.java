@@ -17,6 +17,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.topbraid.shacl.validation;
 import org.topbraid.shacl.validation.ValidationUtil;
 import org.topbraid.shacl.vocabulary.SH;
 import org.topbraid.spin.util.JenaUtil;
@@ -24,11 +25,11 @@ import org.topbraid.spin.util.JenaUtil;
 public class Validation {
 
     public static void main(String[] args) {
-        testGood();
-        testBad();
+       // testGood();
+       // testBad();
     }
     
-    public static void testGood()
+   /* public static void testGood()
     {
         String test = "";
         test += "<https://test> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/AIRO#AISystem> .";
@@ -39,9 +40,9 @@ public class Validation {
     {
         String test = "";
         test += "<https://test> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/AIRO#AISystem> .";
-        test += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#GlobalWar> .";
+        test += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#BiometricIdentification> .";
         Validation.validate(test);
-    }
+    }*/
     
     
     /**
@@ -82,8 +83,13 @@ public class Validation {
         try{
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(json);
-            String purpose = (String) jsonObject.get("purpose");        
+            String purpose = (String) jsonObject.get("purpose");   
+            String domain = (String) jsonObject.get("domain");
             nt += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#"+ purpose + "> .";
+            nt += "<https://test> <https://w3id.org/AIRO#hasDomain> <https://w3id.org/AIRO#"+ domain + "> .";
+           // nt += "<https://w3id.org/AIRO#"+purpose+"> a <https://w3id.org/AIRO#BiometricIdentification> .";
+           
+            System.out.println(nt);
         }catch(Exception e)
         {
             e.printStackTrace();
@@ -114,7 +120,10 @@ public class Validation {
             } 
             Resource reportResource = ValidationUtil.validateModel(dataModel, shapeModel, true);
             boolean conforms = reportResource.getProperty(SH.conforms).getBoolean();
-            System.out.println(conforms);
+            System.out.println("Conform is"+ conforms);
+            String message = reportResource.getProperty(SH.message).getString();
+            System.out.println("This is message: "+message);
+           
             /*if (!conforms) {
                 String report = path.toFile().getAbsolutePath() + "/src/main/resources/report.ttl";
                 File reportFile = new File(report);

@@ -1,5 +1,6 @@
 package airoapp.api;
 
+
 import airoapp.logic.Validation;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,13 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+
+
 /**
  * Servlet calculating the Risk.
  * @author @vroddon @DelaramGlp
  */
 public class RiskServlet extends HttpServlet {
 
-    /**
+
+
+	/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -28,7 +33,7 @@ public class RiskServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain;charset=UTF-8");
-        String answer = "dangerous";        
+        String answer = "";        
         if ("POST".equalsIgnoreCase(request.getMethod())) 
         {
            String json = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));

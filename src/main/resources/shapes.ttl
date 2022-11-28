@@ -1,9 +1,33 @@
 prefix sh: <http://www.w3.org/ns/shacl#>  
 prefix airo: <https://w3id.org/AIRO#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix ex: <https://test>
  
-ex:AISystemShape
+ex:AnnexIII-1
   a sh:NodeShape ;
   sh:targetClass airo:AISystem ;
+  sh:resultMessage "High-Risk AI System as per AI Act Annex III-1"@en ;
   sh:path airo:hasPurpose ;
-  sh:in ( airo:Tetris airo:Pacman ) .
+  sh:not [sh:in (airo:BiometricIdentification);] .
+ 
+ex:AnnexIII-3
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:Education) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:DeterminingAccessToEducation airo:AssigningPeopleToEducationalInstitutions);
+		               ]        		   
+		  
+		  )].
+
+
+		  
+		  
