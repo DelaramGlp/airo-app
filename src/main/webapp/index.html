@@ -4,59 +4,101 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
  	  xmlns:ui="http://java.sun.com/jsf/facelets">
     <head>
-    	<h:outputStylesheet library = "css" name = "style.css"/>
-        <title>Determine High-Risk AI</title>
+    
+        <title>Is My AI System High-Risk?</title>
+        
+        <link rel="stylesheet" href="resources/css/bootstrap.css"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
-    <body>
-        <h1>Check your AI system</h1>
-            <label for="purpose">1. What is the intended purpose of the AI system?</label>
-            <select name="purpose" id="idselpurpose">
-              <option value="BiometricIdentification">Biometric Identification</option>
-              <option value="DeterminingAccessToEducation"> Determining Access to Education </option>
-              <option value="AssigningPeopleToEducationalInstitutions"> Assigning People to Educational Institutions </option>
-              <option value="Tetris">Plays Tetris</option>
-            </select>
-            <br/>
-            
-            <label for="domain"> 2. What domain is the system intended to be used in?</label>
-            <select name="domain" id="iddomain">
-            <option value="Education"> Education </option>
-           	 <option value="Law_Enforcement"> Law Enforcement </option>
-            </select>
-            <br/>
-          
-            <label for="application"> 3. What is the application of the system?</label>
-            <select name="application" id="idapplication">
-           	 <option value="facial recognition"> Facial Recognition</option>
-            </select>
-      		 <br/>
+    
+		
+		<body>	
+		<!-- Header -->
+		<div class = "header_main">
+			<div class="container">
+				<div class="row">
+					
+					<!-- Logo -->
+					<div class="col-lg-1 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+						<div class="logo"><a href="https://w3id.org/AIRO"><img src="resources/airo-logo.png" width="100" class="img-responsive home" border="0" ></a></div>
+						</div>
+					</div>
+				</div>	
+			</div>	
+		</div>
+		<!-- Title -->
+					
+					 	<h1 class="bg-dark text-center text-white"> Is My AI System High-Risk? </h1>
+					
        
-            <label for="user"> 4. Who is the intended user of the system?</label>
-            <select name="user" id="iduser">
-           	 <option value="myUser"> user </option>
-            </select>
-             <br/>
-         
-            <label for="subject"> 5. Who is the subject of the system?</label>
-            <select name="subject" id="idsubject">
-           	<option value="mySub"> sub </option>
-            </select>
-             <br/>
+         <h4> Introduction </h4>
+         <p> This tool assist you determine whether an AI system is High-Risk according to Annex III of the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52021PC0206">EU AI Act</a>. </p>
+         <h4>Disclaimer</h4>
+         <p> This tool only offers guidance and does not provide any legal advise. </p>
+         <h4 class="bg-secondary bg-opacity-25"> Checklist </h4>
         
-            
-            <label for="environment"> 6. In which environment is the system used?</label>
-            <select name="environment" id="idenvironment">
-           	<option value="myEnv"> env </option>
+        <form>
+ 		 	<div class="mb-3">
+    			<label for="domain" class="form-label"> 1. What domain is the AI system intended to be used in?</label>
+    			<select name="domain" id="iddomain" class="form-select">
+             		<option value="Education"> Education </option>
+           	 		<option value="Law_Enforcement"> Law Enforcement </option>
+            	</select>
+ 		 	</div>
+ 		 	
+ 		 	<div class="mb-3">
+    			<label for="purpose" class="form-label">2. What is the intended purpose of the AI system?</label>
+    			<select name="purpose" id="idselpurpose" class="form-select">
+             		<option value="BiometricIdentification">Biometric Identification</option>
+              		<option value="DeterminingAccessToEducation"> Determining Access to Education </option>
+              		<option value="AssigningPeopleToEducationalInstitutions"> Assigning People to Educational Institutions </option>
+              		<option value="Tetris">Plays Tetris</option>
             </select>
-            <br/>
-         
-            
-            
-            
-            <button onclick="submit()">Check</button>
-            <hr/>
-            <span id="idresponse" style="font-weight: bold;"></span>
+ 		 	</div>
+ 		 	
+ 		 	<div class="mb-3">
+    			<label for="application" class="form-label">3. What is the application of the AI system?</label>
+    			<select name="application" id="idapplication" class="form-select">
+    				 <option value="null"> None</option>
+           			 <option value="facial recognition"> Facial Recognition</option>
+            	</select>
+ 		 	</div>
+ 		 	
+ 		 	<div class="mb-3">
+    			<label for="user" class="form-label">4. Who is the intended user of the AI system?</label>
+    			<select name="user" id="iduser" class="form-select">
+           			 <option value="myUser"> user </option>
+            	</select>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	<div class="mb-3">
+    			<label for="subject" class="form-label"> 5. Who is the subject of the AI system? </label>
+    			<select name="subject" id="idsubject" class="form-select">
+           			<option value="mySub"> subject </option>
+            	</select>
+ 		 	</div>
+ 		 	
+ 		 	<div class="mb-3">
+    			<label for="environment" class="form-label"> 6. In which environment is the AI system used? </label>
+    			<select name="environment" id="idenvironment" class="form-control">
+           			<option value="myEnv"> Environment </option>
+            	</select>
+ 		 	</div>
+ 		 	
+        </form>
+ 
+      
+            <button class= "btn btn-outline-success d-block" onclick="submit()">Check</button>
+           
+        
+            <span> 
+            <h4> Result </h4>
+            <h3 id="idresponse" class="border bg-warning" />
+            </span>
+           
+             
         <script>
         
             async function submit()
@@ -83,5 +125,7 @@
                 document.getElementById('idresponse').innerHTML = responsetxt;
             }
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     </body>
 </html>

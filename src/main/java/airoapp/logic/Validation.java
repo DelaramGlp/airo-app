@@ -17,7 +17,6 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.topbraid.shacl.validation;
 import org.topbraid.shacl.validation.ValidationUtil;
 import org.topbraid.shacl.vocabulary.SH;
 import org.topbraid.spin.util.JenaUtil;
@@ -120,9 +119,9 @@ public class Validation {
             } 
             Resource reportResource = ValidationUtil.validateModel(dataModel, shapeModel, true);
             boolean conforms = reportResource.getProperty(SH.conforms).getBoolean();
-            System.out.println("Conform is"+ conforms);
-            String message = reportResource.getProperty(SH.message).getString();
-            System.out.println("This is message: "+message);
+          //  System.out.println("Conform is"+ conforms);
+           // String message = reportResource.getProperty(SH.message).getString();
+           // System.out.println("This is message: "+message);
            
             /*if (!conforms) {
                 String report = path.toFile().getAbsolutePath() + "/src/main/resources/report.ttl";
