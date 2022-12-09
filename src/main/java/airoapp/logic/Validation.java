@@ -84,8 +84,10 @@ public class Validation {
             JSONObject jsonObject = (JSONObject) parser.parse(json);
             String purpose = (String) jsonObject.get("purpose");   
             String domain = (String) jsonObject.get("domain");
+            String user = (String) jsonObject.get("user");
             nt += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#"+ purpose + "> .";
             nt += "<https://test> <https://w3id.org/AIRO#hasDomain> <https://w3id.org/AIRO#"+ domain + "> .";
+            nt += "<https://test> <https://w3id.org/AIRO#isUsedBy> <https://w3id.org/AIRO#"+ user +"> . ";
            // nt += "<https://w3id.org/AIRO#"+purpose+"> a <https://w3id.org/AIRO#BiometricIdentification> .";
            
             System.out.println(nt);

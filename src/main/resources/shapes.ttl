@@ -27,6 +27,55 @@ ex:AnnexIII-3
 		               ]        		   
 		  
 		  )].
+  
+  
+  
+  ex:AnnexIII-7
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasDomain ;
+		               sh:in (airo:Migration airo:Asylum airo:BorderControlManagement) ;
+		               
+		               ]
+				  
+		  )]
+	
+		  
+  
+  
+  
+  ex:AnnexIII-8a
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:resultMessage "High-Risk AI System as per AI Act Annex III-8-a"@en ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:AdministrationOfJustice airo:AdministrationOfDemocraticProcesses ) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:LegalInterpretation airo:ApplyingTheLawToFacts);
+		               ]
+		 sh:property [
+		              a sh:PropertyShape ;
+		              sh:path airo:isUsedBy ;
+		              sh:in (airo:JudicialAuthority) ; 
+		              ]
+				 
+		              		   
+		  
+		  )].
+   
+     			
+  			
+  			
 
 
 		  

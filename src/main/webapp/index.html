@@ -33,16 +33,23 @@
 					
        
          <h4> Introduction </h4>
-         <p> This tool assist you determine whether an AI system is High-Risk according to Annex III of the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52021PC0206">EU AI Act</a>. </p>
+         <p> This tool assists you determine whether an AI system is High-Risk according to Annex III of the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52021PC0206">EU AI Act</a>. </p>
          <h4>Disclaimer</h4>
          <p> This tool only offers guidance and does not provide any legal advise. </p>
          <h4 class="bg-secondary bg-opacity-25"> Checklist </h4>
         
         <form>
+        	
  		 	<div class="mb-3">
     			<label for="domain" class="form-label"> 1. What domain is the AI system intended to be used in?</label>
     			<select name="domain" id="iddomain" class="form-select">
              		<option value="Education"> Education </option>
+             		<option value="Employment"> Employment </option>
+             		<option value="Migration"> Migration </option>
+             		<option value="Asylum"> Asylum </option>
+             		<option value="BorderControlManagement">Border Control Management</option>
+             		<option value="AdministrationOfJustice"> Administration Of Justice </option>
+             		<option value="AdministrationOfDemocraticProcesses"> Administration Of Democratic Processes </option>
            	 		<option value="Law_Enforcement"> Law Enforcement </option>
             	</select>
  		 	</div>
@@ -53,6 +60,8 @@
              		<option value="BiometricIdentification">Biometric Identification</option>
               		<option value="DeterminingAccessToEducation"> Determining Access to Education </option>
               		<option value="AssigningPeopleToEducationalInstitutions"> Assigning People to Educational Institutions </option>
+              		<option value="LegalInterpretation"> Interpret Law </option>
+              		<option value="ApplyingTheLawToFacts"> Applying The Law to Facts </option>
               		<option value="Tetris">Plays Tetris</option>
             </select>
  		 	</div>
@@ -68,7 +77,10 @@
  		 	<div class="mb-3">
     			<label for="user" class="form-label">4. Who is the intended user of the AI system?</label>
     			<select name="user" id="iduser" class="form-select">
-           			 <option value="myUser"> user </option>
+    				 <option value="null"> None </option>
+    				 <option value="CompetentPublicAuthority"> Competent Public Authority </option>
+           			 <option value="JudicialAuthority"> Judicial Authorities </option>
+           			 <
             	</select>
  		 	</div>
  		 	
