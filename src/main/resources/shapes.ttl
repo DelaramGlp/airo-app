@@ -1,33 +1,214 @@
 prefix sh: <http://www.w3.org/ns/shacl#>  
 prefix airo: <https://w3id.org/AIRO#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix ex: <https://test>
+prefix ex: <http://example.com/ns#> 
  
-ex:AnnexIII-1
+ex:AnnexIII-1a
   a sh:NodeShape ;
   sh:targetClass airo:AISystem ;
-  sh:resultMessage "High-Risk AI System as per AI Act Annex III-1"@en ;
+  sh:message "High-Risk AI System as per AI Act Annex III-1-a" ;
   sh:path airo:hasPurpose ;
   sh:not [sh:in (airo:BiometricIdentification);] .
- 
-ex:AnnexIII-3
+
+  ex:AnnexIII-2a
   a sh:NodeShape ;
   sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-2-a" ;
   sh:not [sh:and (
 		  sh:property [
 		               a sh:PropertyShape ;
 		                sh:path airo:hasDomain ;
-		                sh:in (airo:Education) ;
+		                sh:in (airo:CriticalInfrastructure) ;
 		               
 		               ]
 		  sh:property [
 		               a sh:PropertyShape ;
 		               sh:path airo:hasPurpose ;
-		               sh:in (airo:DeterminingAccessToEducation airo:AssigningPeopleToEducationalInstitutions);
+		               sh:in (airo:ManagementOfCriticalDigitalInfrastructure airo:OperationOfCriticalDigitalInfrastructure
+		            		  airo:ManagementOfRoadTraffic airo:OperationOfRoadTraffic
+		            		  airo:ManagementOfSupplyOfWater airo:OperationOfSupplyOfWater
+		            		  airo:ManagementOfSupplyOfGas airo:OperationOfSupplyOfGas
+		            		  airo:ManagementOfSupplyOfHeating airo:OperationOfSupplyOfHeating
+		            		  airo:ManagementOfSupplyOfElectricity airo:OperationOfSupplyOfElectricity);
+		               ]        		   
+		  
+		  )].
+    
+  
+  
+  
+  
+ex:AnnexIII-3a
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-3a" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:Education airo:VocationalTraining) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:DeterminingAccessToEducation airo:DeterminingAdmissionToEducationalInstitutions airo:AssigningPeopleToEducationalInstitutions);
 		               ]        		   
 		  
 		  )].
   
+
+ ex:AnnexIII-3b
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-3b" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:Education airo:VocationalTraining) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:EvaluatingLearningOutcomes);
+		               ]        		   
+		  
+		  )].
+  
+  
+  ex:AnnexIII-4a
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-4a" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:Employment airo:WorkersManagement airo:SelfEmployment) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:Recruitment airo:AdvertisingVacancies );
+		               ]        		   
+		  
+		  )].
+  
+  
+  ex:AnnexIII-4b
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-4b" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:Employment airo:WorkersManagement airo:SelfEmployment) ;
+		               
+		               ]    		   
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:MakingPromotionDecision airo:MakingTerminationDecision 
+		            		  airo:MonitoringEmployeeBehaviour airo:MonitoringEmployeePerformance
+		            		  airo:EvaluatingEmployeeBehaviour airo:EvaluatingEmployeePerformance
+		            		   );
+		               ]
+	        		   
+		  )]. 
+  
+  ex:AnnexIII-5a
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-5a" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:PublicService) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape;
+		               sh:path airo:isUsedBy ;
+		               sh:in (airo:PublicAuthority)
+		               
+		               ]
+				  
+				  
+				  
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:EvaluatingEligibilityToAccessPublicAssistance 
+		            		  airo:GrantingPublicAssistanceServices
+		            		  airo:RevokingPublicAssisstanceServices
+		            		  airo:ReclaimingPublicAssisstanceServices
+		            		  airo:ReducingPublicAssisstanceServices);
+		               ]   
+		            		   
+		  
+		  )].
+  
+ex:AnnexIII-5b
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-5b" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:PublicService airo:PrivateService) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:AssessingCreditworthiness airo:DeterminingCreditScore);
+		               ]   
+
+		  )].
+ 
+  ex:AnnexIII-5c
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-5c" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:PublicService airo:PrivateService) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:DispacthingEmergencyService airo:PrioritisationOfEmergencyService);
+		               ]   
+
+		  )].
+  
+  ex:AnnexIII-5d
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-5d" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:PublicService airo:PrivateService) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:HealthInsuranceRiskAssessment airo:HealthInsurancePricing);
+		               ]   
+
+		  )].
   
   
   ex:AnnexIII-7

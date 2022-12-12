@@ -7,11 +7,13 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Path;
+
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
@@ -77,7 +79,7 @@ public class Validation {
      */
     public static String generateInstances(String json) {
         String nt="";
-        nt += "<https://test> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/AIRO#AISystem> .";
+        nt += "<http://example.com/ns#mySystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/AIRO#AISystem> .";
 
         try{
             JSONParser parser = new JSONParser();
@@ -85,9 +87,9 @@ public class Validation {
             String purpose = (String) jsonObject.get("purpose");   
             String domain = (String) jsonObject.get("domain");
             String user = (String) jsonObject.get("user");
-            nt += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#"+ purpose + "> .";
-            nt += "<https://test> <https://w3id.org/AIRO#hasDomain> <https://w3id.org/AIRO#"+ domain + "> .";
-            nt += "<https://test> <https://w3id.org/AIRO#isUsedBy> <https://w3id.org/AIRO#"+ user +"> . ";
+            nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#"+ purpose + "> .";
+            nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#hasDomain> <https://w3id.org/AIRO#"+ domain + "> .";
+            nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#isUsedBy> <https://w3id.org/AIRO#"+ user +"> . ";
            // nt += "<https://w3id.org/AIRO#"+purpose+"> a <https://w3id.org/AIRO#BiometricIdentification> .";
            
             System.out.println(nt);
@@ -103,6 +105,7 @@ public class Validation {
      * Validates a piece of RDF against the shapes
      *
      * @param nt Input data to be validated as NTRIPLES
+     * @param path 
      */
     public static boolean validate(String nt) {
         try {
@@ -121,21 +124,32 @@ public class Validation {
             } 
             Resource reportResource = ValidationUtil.validateModel(dataModel, shapeModel, true);
             boolean conforms = reportResource.getProperty(SH.conforms).getBoolean();
-          //  System.out.println("Conform is"+ conforms);
-           // String message = reportResource.getProperty(SH.message).getString();
-           // System.out.println("This is message: "+message);
+          //  System.out.println("Conform is "+ conforms);
+            
            
-            /*if (!conforms) {
-                String report = path.toFile().getAbsolutePath() + "/src/main/resources/report.ttl";
-                File reportFile = new File(report);
+           if (!conforms) {
+    
+               String m = reportResource.getModel().toString();
+               System.out.println("This is the report: "+m);
+               
+               String path = Paths.get("/src/main/resources", "report.ttl").toAbsolutePath().toString();
+               System.out.println("PATH: "+path);
+				//String report = path.toFile().getAbsolutePath() + "/src/main/resources/report.ttl";
+        	    //String report =  "/src/main/resources/report.ttl";
+        	   
+                File reportFile = new File(path);
                 reportFile.createNewFile();
                 OutputStream reportOutputStream = new FileOutputStream(reportFile);
                 RDFDataMgr.write(reportOutputStream, reportResource.getModel(), RDFFormat.TURTLE);
-            }*/
+            }
+            
             return conforms;
         } catch (Throwable t) {
             t.printStackTrace();
         }
         return false;
     }
+    
+    
+    
 }

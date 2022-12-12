@@ -40,7 +40,7 @@ public class RiskServlet extends HttpServlet {
            String nt= Validation.generateInstances(json);
            System.out.println(nt);
            boolean b =Validation.validate(nt);
-           answer = !b ? "It is likely that your AI system is High-Risk" : "It is likely that your AI system is not High-Risk"; 
+           answer = !b ? "It is likely that your AI system is High-Risk" : "It is likely that your AI system is NOT High-Risk"; 
         }
         try (PrintWriter out = response.getWriter()) {
             out.println(answer);

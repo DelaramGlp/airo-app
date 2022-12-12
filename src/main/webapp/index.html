@@ -43,33 +43,89 @@
  		 	<div class="mb-3">
     			<label for="domain" class="form-label"> 1. What domain is the AI system intended to be used in?</label>
     			<select name="domain" id="iddomain" class="form-select">
+    				<option value="none">No Specific Domain</option>
+    				<option value="CriticalInfrastructure"> Critical Infrastructure </option>
              		<option value="Education"> Education </option>
+             		<option value="VocationalTraining"> Vocational Training </option>
              		<option value="Employment"> Employment </option>
+             		<option value="WorkersManagement"> Workers Management</option>
+             		<option value="SelfEmployment"> Self-Employment </option>
+           			<option value="PrivateService"> Private Services </option>
+           			<option value="PublicService"> Public Services and Benefits </option>
+
              		<option value="Migration"> Migration </option>
              		<option value="Asylum"> Asylum </option>
              		<option value="BorderControlManagement">Border Control Management</option>
              		<option value="AdministrationOfJustice"> Administration Of Justice </option>
              		<option value="AdministrationOfDemocraticProcesses"> Administration Of Democratic Processes </option>
-           	 		<option value="Law_Enforcement"> Law Enforcement </option>
+           	 		<option value="LawEnforcement"> Law Enforcement </option>
             	</select>
  		 	</div>
  		 	
  		 	<div class="mb-3">
     			<label for="purpose" class="form-label">2. What is the intended purpose of the AI system?</label>
     			<select name="purpose" id="idselpurpose" class="form-select">
-             		<option value="BiometricIdentification">Biometric Identification</option>
+    			
+    			<option value="BiometricIdentification">Biometric Identification</option>
+    			
+    			<!--2. Critical Infrastructure -->
+    				<option value="ManagementOfCriticalDigitalInfrastructure">Management of Critical Digital Infrastructure</option>
+    				<option value="OperationOfCriticalDigitalInfrastructure">Operation of Critical Digital Infrastructure</option>
+    				<option value="ManagementOfRoadTraffic">Management of  Road Traffic</option>
+    				<option value="OperationOfRoadTraffic">Operation of Road Traffic</option>
+    				<option value="ManagementOfSupplyOfWater">Management of  Supply of Water</option>
+    				<option value="OperationOfSupplyOfWater">Operation of Supply of Water</option>
+    				<option value="ManagementOfSupplyOfGas">Management of  Supply of Gas</option>
+    				<option value="OperationOfSupplyOfGas">Operation of Supply of Gas</option>
+    				<option value="ManagementOfSupplyOfHeating">Management of  Supply of Heating</option>
+    				<option value="OperationOfSupplyOfHeating">Operation of Supply of Heating</option>
+    				<option value="ManagementOfSupplyOfElectricity">Management of  Supply of Electricity</option>
+    				<option value="OperationOfSupplyOfElectricity">Operation of Supply of Electricity</option>
+    				
+    			<!-- 3. Education and Vocational Training -->
+
               		<option value="DeterminingAccessToEducation"> Determining Access to Education </option>
               		<option value="AssigningPeopleToEducationalInstitutions"> Assigning People to Educational Institutions </option>
-              		<option value="LegalInterpretation"> Interpret Law </option>
+              		<option value="DeterminingAdmissionToEducationalInstitutions"> Determining Admission to Educational Institutions </option>
+              		<option value="EvaluatingLearningOutcomes"> Evaluating Learning Outcomes</option>
+              				
+ 				<!-- 4. Employment, Workers Management, Self-Employment-->	
+ 					<option value="Recruitment"> Recruitment </option>
+ 					<option value="AdvertisingVacancies"> Advertising Job Vacancies </option>
+ 					<option value="JobApplicationAnalysis"> Analysing Job Applications </option>
+ 					<option value="JobApplicationFiltering"> Filtering Job Applications </option>
+ 					<option value="EvaluatingJobCandidates"> Evaluating Job Candidates </option>
+ 					<option value="MakingPromotionDecision"> Making Decision about Promotion in Work-related Contractual Relationships</option>
+ 					<option value="MakingTerminationDecision"> Making Decision about Termination of Work-related Contractual Relationships</option>
+ 					<option value="MonitoringEmployeeBehaviour"> Monitoring Behaviour of Employees</option>
+ 					<option value="MonitoringEmployeePerformance">Monitoring Performance of of Employees</option>
+ 					<option value="EvaluatingEmployeeBehaviour">Evaluating Behaviour of Employees</option>
+ 					<option value="EvaluatingEmployeePerformance">Evaluating Performance of of Employees</option>
+ 					
+ 				<!-- 5. Access to and enjoyment of essential private services and essential public services and benefits-->
+ 					<option value="EvaluatingEligibilityToAccessPublicAssistance"> Evaluating Eligibility of people for Essential Public Assistance Benefits and Services</option>
+ 					<option value="GrantingPublicAssistanceServices"> Granting Essential Public Assistance Benefits and Services</option>
+ 					<option value="RevokingPublicAssisstanceServices"> Revoking Essential Public Assisstance Benefits and Services</option>
+ 					<option value="ReclaimingPublicAssisstanceServices">Reclaiming Essential Public Assisstance Services</option>
+ 					<option value="ReducingPublicAssisstanceServices">Reducing Essential Public Assisstance Services</option>
+ 					
+ 					<option value="AssessingCreditworthiness"> Evaluating Creditworthiness of People </option>
+ 					<option value="DeterminingCreditScore"> Determining Credit Score of People </option>
+ 					<option value="DispacthingEmergencyService">Dispacthing Emergency First Response Services</option>
+ 					<option value="PrioritisationOfEmergencyService">Establishing Priority in the Dispatching of Emergency First Response Services</option>
+ 					<option value="HealthInsuranceRiskAssessment"> Risk Assessment of People for Health and Life Insurance </option>
+ 					<option value="HealthInsurancePricing"> Health and Life Insurance Pricing </option>
+ 					
+              		<option value="LegalInterpretation"> Interpret Law</option>
               		<option value="ApplyingTheLawToFacts"> Applying The Law to Facts </option>
-              		<option value="Tetris">Plays Tetris</option>
+         
             </select>
  		 	</div>
  		 	
  		 	<div class="mb-3">
     			<label for="application" class="form-label">3. What is the application of the AI system?</label>
     			<select name="application" id="idapplication" class="form-select">
-    				 <option value="null"> None</option>
+    				 <option value="null"> No Specific Application</option>
            			 <option value="facial recognition"> Facial Recognition</option>
             	</select>
  		 	</div>
@@ -77,10 +133,14 @@
  		 	<div class="mb-3">
     			<label for="user" class="form-label">4. Who is the intended user of the AI system?</label>
     			<select name="user" id="iduser" class="form-select">
-    				 <option value="null"> None </option>
-    				 <option value="CompetentPublicAuthority"> Competent Public Authority </option>
+    				 <option value="null"> No Specific User </option>
+    				 <option value="PublicAuthority">Public Authorities</option>
+    				 <option value="CompetentPublicAuthority"> Competent Public Authorities </option>
            			 <option value="JudicialAuthority"> Judicial Authorities </option>
-           			 <
+           			 <option value="Firefighter"> Firefighters </option>
+           			 <option value="MedicalAid"> Medical Aid </option>
+           			 
+           			 
             	</select>
  		 	</div>
  		 	
@@ -88,14 +148,14 @@
  		 	<div class="mb-3">
     			<label for="subject" class="form-label"> 5. Who is the subject of the AI system? </label>
     			<select name="subject" id="idsubject" class="form-select">
-           			<option value="mySub"> subject </option>
+           			<option value="mySub"> No Specific Subject </option>
             	</select>
  		 	</div>
  		 	
  		 	<div class="mb-3">
     			<label for="environment" class="form-label"> 6. In which environment is the AI system used? </label>
     			<select name="environment" id="idenvironment" class="form-control">
-           			<option value="myEnv"> Environment </option>
+           			<option value="myEnv"> No Specific Environment </option>
             	</select>
  		 	</div>
  		 	
