@@ -87,10 +87,12 @@ public class Validation {
             String purpose = (String) jsonObject.get("purpose");   
             String domain = (String) jsonObject.get("domain");
             String user = (String) jsonObject.get("user");
+            String environment = (String) jsonObject.get("environment");
             nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#"+ purpose + "> .";
             nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#hasDomain> <https://w3id.org/AIRO#"+ domain + "> .";
             nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#isUsedBy> <https://w3id.org/AIRO#"+ user +"> . ";
-           // nt += "<https://w3id.org/AIRO#"+purpose+"> a <https://w3id.org/AIRO#BiometricIdentification> .";
+            nt += "<http://example.com/ns#mySystem>  <https://w3id.org/AIRO#isUsedInEnvironment> <https://w3id.org/AIRO#" + environment +"> .";   
+            // nt += "<https://w3id.org/AIRO#"+purpose+"> a <https://w3id.org/AIRO#BiometricIdentification> .";
            
             System.out.println(nt);
         }catch(Exception e)

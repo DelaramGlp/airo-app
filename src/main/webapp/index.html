@@ -116,22 +116,42 @@
  					<option value="HealthInsuranceRiskAssessment"> Risk Assessment of People for Health and Life Insurance </option>
  					<option value="HealthInsurancePricing"> Health and Life Insurance Pricing </option>
  					
+ 					
+ 				<!-- 6.Law Enforcement -->	
+ 					<option value="AssessingRiskOfOffending"> Assessing Risk of Offending </option>
+ 					<option value= "AssessingRiskOfReoffending"> Assessing Risk of Re-offending </option>
+ 					<option value="AssessingRiskForPotentialVictimsOfCriminalOffences"> Assessing Risk of Becoming a Victim of Criminal Offences </option>
+ 					<option value="EmotionRecognition"> Detecting Emotional State </option>
+ 					<option value="EvaluatingReliabilityOfEvidence"> Evaluating Reliability of Evidence</option>
+ 					<option value="Profiling"> Profiling </option>
+ 				
+ 				<!-- 7. Migration, asylum and border control management -->
+ 					<option value="AssessingARisk"> Assessing a Risk </option>
+ 					<option value="AssessingRiskOfIrregularImmigration"> Assessing Risk of Irregular Immigration </option>
+ 					<option value="AssessingSecurityRisk"> Assessing Security Risk </option>
+ 					<option value="AssessingHealthRisk"> Assessing Health Risk </option>
+ 					<option value="ExaminingAsylumApplication"> Examining Asylum Application </option>
+ 					<option value="ExaminingVisaApplication"> Examining Visa Application </option>
+ 					<option value="ExaminingResidencePermitsApplication"> Examining Residence Permits Application </option>
+ 					<option value="ExaminingMigrationRelatedComplaints"> Examining Migration-Related Complaints</option>
+
+					<!-- 8.Administration of justice and democratic processes --> 				
               		<option value="LegalInterpretation"> Interpret Law</option>
               		<option value="ApplyingTheLawToFacts"> Applying The Law to Facts </option>
          
             </select>
  		 	</div>
- 		 	
+ 		 	<!--  
  		 	<div class="mb-3">
     			<label for="application" class="form-label">3. What is the application of the AI system?</label>
     			<select name="application" id="idapplication" class="form-select">
     				 <option value="null"> No Specific Application</option>
            			 <option value="facial recognition"> Facial Recognition</option>
             	</select>
- 		 	</div>
+ 		 	</div> -->
  		 	
  		 	<div class="mb-3">
-    			<label for="user" class="form-label">4. Who is the intended user of the AI system?</label>
+    			<label for="user" class="form-label">3. Who is the intended user of the AI system?</label>
     			<select name="user" id="iduser" class="form-select">
     				 <option value="null"> No Specific User </option>
     				 <option value="PublicAuthority">Public Authorities</option>
@@ -139,23 +159,27 @@
            			 <option value="JudicialAuthority"> Judicial Authorities </option>
            			 <option value="Firefighter"> Firefighters </option>
            			 <option value="MedicalAid"> Medical Aid </option>
+           			 <option value="LawEnforcementAuthority"> Law Enforcement Authorities </option>
            			 
            			 
             	</select>
  		 	</div>
  		 	
- 		 	
+ 		 	<!-- 
  		 	<div class="mb-3">
     			<label for="subject" class="form-label"> 5. Who is the subject of the AI system? </label>
     			<select name="subject" id="idsubject" class="form-select">
            			<option value="mySub"> No Specific Subject </option>
             	</select>
- 		 	</div>
+ 		 	</div>  -->
  		 	
  		 	<div class="mb-3">
-    			<label for="environment" class="form-label"> 6. In which environment is the AI system used? </label>
+    			<label for="environment" class="form-label"> 4. In which environment is the AI system used? </label>
     			<select name="environment" id="idenvironment" class="form-control">
            			<option value="myEnv"> No Specific Environment </option>
+           			<option value="InvestigationOfCriminalOffences"> Investigation of Criminal Offences </option>
+           			<option value="ProsecutionOfCriminalOffences"> Prosecution of Criminal Offences </option>
+           			<option value="DetectionOfCriminalOffences"> Detection of Criminal Offences </option>			
             	</select>
  		 	</div>
  		 	
@@ -177,9 +201,9 @@
             {
                 var purpose = document.getElementById('idselpurpose').selectedOptions[0].value;
                 var domain = document.getElementById('iddomain').selectedOptions[0].value;
-                var application = document.getElementById('idapplication').selectedOptions[0].value;
+               // var application = document.getElementById('idapplication').selectedOptions[0].value;
                 var user = document.getElementById('iduser').selectedOptions[0].value;
-                var subject = document.getElementById('idsubject').selectedOptions[0].value;
+               // var subject = document.getElementById('idsubject').selectedOptions[0].value;
                 var environment = document.getElementById ('idenvironment').selectedOptions[0].value;
                 
                 var input = { "purpose": purpose,

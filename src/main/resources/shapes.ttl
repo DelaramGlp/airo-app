@@ -209,11 +209,128 @@ ex:AnnexIII-5b
 		               ]   
 
 		  )].
+ 
   
-  
-  ex:AnnexIII-7
+  ex:AnnexIII-6a
   a sh:NodeShape ;
   sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-6a" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:LawEnforcement) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:AssessingRiskOfOffending airo:AssessingRiskOfReoffending airo:AssessingRiskForPotentialVictimsOfCriminalOffences);   
+		               ]   
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:isUsedBy ;
+		               sh:in (airo:LawEnforcementAuthority) ;
+		               ]  
+
+		  )].
+  
+  
+  ex:AnnexIII-6b
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-6b" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:LawEnforcement) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:EmotionRecognition); 
+		               ]   
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:isUsedBy ;
+		               sh:in (airo:LawEnforcementAuthority) ;
+		               ]  
+
+		  )].
+  
+  
+  ex:AnnexIII-6d
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-6d" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:LawEnforcement) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:EvaluatingReliabilityOfEvidence); 
+		               ]   
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:isUsedBy ;
+		               sh:in (airo:LawEnforcementAuthority) ;
+		               ]  
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:isUsedInEnvironment ; 
+		               sh:in (airo:InvestigationOfCriminalOffences airo:ProsecutionOfCriminalOffences) ;
+		               ]
+		  )].
+  
+  
+
+
+  
+  ex:AnnexIII-6f
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-6f" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		                sh:path airo:hasDomain ;
+		                sh:in (airo:LawEnforcement) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:Profiling);  
+		               ]   
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:isUsedBy ;
+		               sh:in (airo:LawEnforcementAuthority) ;
+		               ]  
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:isUsedInEnvironment ; 
+		               sh:in (airo:DetectionOfCriminalOffences
+		            		  airo:InvestigationOfCriminalOffences
+		            		  airo:ProsecutionOfCriminalOffences) ;
+		               ]
+		  )].
+  
+  
+  
+  
+  
+  ex:AnnexIII-7a
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-7a" ;
   sh:not [sh:and (
 		  sh:property [
 		               a sh:PropertyShape ;
@@ -221,17 +338,88 @@ ex:AnnexIII-5b
 		               sh:in (airo:Migration airo:Asylum airo:BorderControlManagement) ;
 		               
 		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:EmotionRecognition ); 
+		               
+		               
+		               ]
 				  
-		  )]
-	
-		  
+		  sh:property [
+		              a sh:PropertyShape ;
+		              sh:path airo:isUsedBy ;
+		              sh:in (airo:CompetentPublicAuthority);
+              
+		              ]	  
+				  
+		  )].
   
+  
+  ex:AnnexIII-7b
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-7b" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasDomain ;
+		               sh:in (airo:Migration airo:Asylum airo:BorderControlManagement) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:AssessingARisk airo:AssessingRiskOfIrregularImmigration
+		            		  airo:AssessingSecurityRisk airo:AssessingHealthRisk); 
+		               
+		               
+		               ]
+				  
+		  sh:property [
+		              a sh:PropertyShape ;
+		              sh:path airo:isUsedBy ;
+		              sh:in (airo:CompetentPublicAuthority);
+              
+		              ]	  
+				  
+		  )].
+  
+  
+  ex:AnnexIII-7c
+  a sh:NodeShape ;
+  sh:targetClass airo:AISystem ;
+  sh:message "High-Risk AI System as per AI Act Annex III-7c" ;
+  sh:not [sh:and (
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasDomain ;
+		               sh:in (airo:Migration airo:Asylum airo:BorderControlManagement) ;
+		               
+		               ]
+		  sh:property [
+		               a sh:PropertyShape ;
+		               sh:path airo:hasPurpose ;
+		               sh:in (airo:ExaminingAsylumApplication airo:ExaminingVisaApplication airo:ExaminingResidencePermitsApplication
+		            	      airo:ExaminingMigrationRelatedComplaints); 
+		               
+		               
+		               ]
+				  
+		  sh:property [
+		              a sh:PropertyShape ;
+		              sh:path airo:isUsedBy ;
+		              sh:in (airo:CompetentPublicAuthority);
+              
+		              ]	  
+				  
+		  )]. 
   
   
   ex:AnnexIII-8a
   a sh:NodeShape ;
   sh:targetClass airo:AISystem ;
-  sh:resultMessage "High-Risk AI System as per AI Act Annex III-8-a"@en ;
+  sh:message "High-Risk AI System as per AI Act Annex III-8-a" ;
   sh:not [sh:and (
 		  sh:property [
 		               a sh:PropertyShape ;
@@ -248,9 +436,7 @@ ex:AnnexIII-5b
 		              a sh:PropertyShape ;
 		              sh:path airo:isUsedBy ;
 		              sh:in (airo:JudicialAuthority) ; 
-		              ]
-				 
-		              		   
+		              ]          		   
 		  
 		  )].
    
