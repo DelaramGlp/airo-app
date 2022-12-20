@@ -4,18 +4,18 @@
   <http://www.w3.org/ns/shacl#result>
           [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
             <http://www.w3.org/ns/shacl#focusNode>
-                    <https://test> ;
+                    <http://example.com/ns#mySystem> ;
             <http://www.w3.org/ns/shacl#resultMessage>
-                    "Value is not in [airo:Tetris, airo:Pacman]" ;
+                    "High-Risk AI System as per AI Act Annex III-1-a" ;
             <http://www.w3.org/ns/shacl#resultPath>
                     <https://w3id.org/AIRO#hasPurpose> ;
             <http://www.w3.org/ns/shacl#resultSeverity>
                     <http://www.w3.org/ns/shacl#Violation> ;
             <http://www.w3.org/ns/shacl#sourceConstraintComponent>
-                    <http://www.w3.org/ns/shacl#InConstraintComponent> ;
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
             <http://www.w3.org/ns/shacl#sourceShape>
-                    <https://testAISystemShape> ;
+                    <http://example.com/ns#AnnexIII-1a> ;
             <http://www.w3.org/ns/shacl#value>
-                    <https://w3id.org/AIRO#GlobalWar>
+                    <https://w3id.org/AIRO#BiometricIdentification>
           ]
 ] .

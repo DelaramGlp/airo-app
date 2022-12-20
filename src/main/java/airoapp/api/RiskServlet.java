@@ -9,17 +9,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
 
 /**
- * Servlet calculating the Risk.
+ * Servlet for determining high-risk AI
  * @author @vroddon @DelaramGlp
  */
 public class RiskServlet extends HttpServlet {
-
 
 
 	/**
@@ -59,7 +60,10 @@ public class RiskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+    	//get session
+    	HttpSession session = request.getSession();
+    	System.out.println("Session  is: "+ session.getId());
+    	processRequest(request, response);
     }
 
     /**

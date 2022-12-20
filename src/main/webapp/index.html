@@ -208,12 +208,11 @@
                 
                 var input = { "purpose": purpose,
                 			  "domain": domain,
-                			  "application": application,
+                			 // "application": application,
                 			  "user": user,
-                			  "subject": subject,
+                			 // "subject": subject,
                 			  "environment": environment,};
                 
-                //console.log("so you want to " + purpose);
                
                 const response = await fetch("/airo-app/risk", {method:"POST", body: JSON.stringify(input)});
                 const responsetxt = await response.text();

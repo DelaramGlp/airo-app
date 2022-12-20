@@ -7,8 +7,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.nio.file.Paths;
+
 import java.nio.file.Path;
+
 
 
 import org.apache.jena.rdf.model.Model;
@@ -22,28 +23,20 @@ import org.json.simple.parser.JSONParser;
 import org.topbraid.shacl.validation.ValidationUtil;
 import org.topbraid.shacl.vocabulary.SH;
 import org.topbraid.spin.util.JenaUtil;
+import org.topbraid.shacl.util.ModelPrinter;
+
+
+
+
 
 public class Validation {
 
     public static void main(String[] args) {
-       // testGood();
-       // testBad();
+       
+    	
     }
     
-   /* public static void testGood()
-    {
-        String test = "";
-        test += "<https://test> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/AIRO#AISystem> .";
-        test += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#Tetris> .";
-        Validation.validate(test);
-    }
-    public static void testBad()
-    {
-        String test = "";
-        test += "<https://test> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/AIRO#AISystem> .";
-        test += "<https://test> <https://w3id.org/AIRO#hasPurpose> <https://w3id.org/AIRO#BiometricIdentification> .";
-        Validation.validate(test);
-    }*/
+  
     
     
     /**
@@ -125,25 +118,38 @@ public class Validation {
                 e.printStackTrace();
             } 
             Resource reportResource = ValidationUtil.validateModel(dataModel, shapeModel, true);
+           
             boolean conforms = reportResource.getProperty(SH.conforms).getBoolean();
           //  System.out.println("Conform is "+ conforms);
             
            
            if (!conforms) {
-    
-               String m = reportResource.getModel().toString();
-               System.out.println("This is the report: "+m);
-               
-               String path = Paths.get("/src/main/resources", "report.ttl").toAbsolutePath().toString();
-               System.out.println("PATH: "+path);
-				//String report = path.toFile().getAbsolutePath() + "/src/main/resources/report.ttl";
-        	    //String report =  "/src/main/resources/report.ttl";
+        	    
+        	 
+        	  String message = JenaUtil.getStringProperty(reportResource, SH.resultMessage);
+        	  System.out.println("THIS IS MESSAGE: "+ message);
+        	
         	   
-                File reportFile = new File(path);
-                reportFile.createNewFile();
-                OutputStream reportOutputStream = new FileOutputStream(reportFile);
-                RDFDataMgr.write(reportOutputStream, reportResource.getModel(), RDFFormat.TURTLE);
-            }
+        	   	
+               String reportPath = "/Users/delaram/Desktop/Phd/Projects/airo-app/src/main/resources/report.ttl";
+              // String reportPath = path.toAbsolutePath().toString()+"src/main/resources/report.ttl" ;
+               File reportFile = new File(reportPath);
+               reportFile.createNewFile();
+               OutputStream reportOutputStream = new FileOutputStream(reportFile);
+               RDFDataMgr.write(reportOutputStream, reportResource.getModel(), RDFFormat.TURTLE);
+               
+
+             /*
+        	   String shaclReport = ModelPrinter.get().print(reportResource.getModel());
+               FileWriter fw = new FileWriter(reportFile);
+               PrintWriter pw = new PrintWriter(fw);
+               pw.write(shaclReport);
+               pw.close();*/
+  
+               
+       			
+       		}
+  
             
             return conforms;
         } catch (Throwable t) {
